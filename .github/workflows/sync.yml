@@ -1,0 +1,34 @@
+name: Sync-up updates
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+        with:
+          submodules: true
+
+      - name: Update submodules
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+
+      - name: Push updates
+        run: |
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
+            git add -A
+            if ! git diff-index --quiet HEAD; then
+              git commit -m "chore: sync-up submodules (run #$GITHUB_RUN_NUMBER)" -m "SHA: $GITHUB_SHA"
+              git push
+              echo '☑️ Submodules have been updated.' >> $GITHUB_STEP_SUMMARY
+            else
+              echo '✅ Submodules are already up-to-date.' >> $GITHUB_STEP_SUMMARY
+            fi
