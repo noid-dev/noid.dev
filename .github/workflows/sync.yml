@@ -1,4 +1,4 @@
-name: Sync-up updates
+name: Sync-up submodules
 
 on:
   schedule:
@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
         with:
           submodules: recursive
+          fetch-depth: 0
 
       - name: Update submodules
         run: |
