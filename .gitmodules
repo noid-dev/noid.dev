@@ -1,0 +1,4 @@
+[submodule "codewars-openapi"]
+	path = codewars-openapi
+	url = https://github.com/noid-dev/codewars-openapi
+	branch = gh-pages
