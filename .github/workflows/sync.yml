@@ -12,12 +12,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
         with:
-          submodules: true
+          submodules: recursive
 
       - name: Update submodules
         run: |
           git pull --recurse-submodules
-          git submodule update --remote
+          git submodule update --remote --recursive
 
       - name: Push updates
         run: |
