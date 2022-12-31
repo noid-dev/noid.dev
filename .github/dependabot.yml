@@ -6,3 +6,9 @@ updates:
       interval: daily
     labels:
       - "chore"
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: daily
+    labels:
+      - "chore"
