@@ -1,5 +1,30 @@
 # noid.dev
 
-This repository groups multiple projects under the [noid.dev](https://noid.dev) domain.
-Each child project is linked as a Git submodule and [GitHub Pages](https://pages.github.com)
-would host it on the respective subpath.
+This repository hosts multiple projects under the [noid.dev](https://noid.dev) domain on
+respective subpaths. All coming updates are auto-fetched daily and combined into a PR approved by
+code owners.
+
+| Project                                      | URL                               |
+|----------------------------------------------|-----------------------------------|
+| https://github.com/noid-dev/codewars-openapi | https://noid.dev/codewars-openapi |
+
+## Development
+
+To link new project, run:
+
+```
+git submodule add -b gh-pages <remote-repo>
+```
+
+To pull updates from all linked projects, run:
+
+```
+git pull --recurse-submodules
+git submodule update --remote --recursive
+```
+
+To remove project link, run:
+
+```
+git rm <path-to-submodule>, and commit.
+```
