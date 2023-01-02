@@ -24,7 +24,7 @@ jobs:
             git config user.email github-actions@github.com
             git add -A
             if ! git diff-index --quiet HEAD; then
-              git commit -m "chore: sync-up submodules (run #$GITHUB_RUN_NUMBER)" -m "SHA: $GITHUB_SHA"
+              git commit -m "$(git log -1 --format=%B)"
               git push
               echo '☑️ Submodules have been updated.' >> $GITHUB_STEP_SUMMARY
             else
