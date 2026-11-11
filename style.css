@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('fonts/CormorantGaramond-Regular.woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overscroll-behavior: none;
+  background: #1a1614;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+#messages {
+  position: fixed;
+  inset: 0;
+  color: #f4efe4;
+  font: clamp(24px, 3vw, 44px) / 1 'Cormorant Garamond', Georgia, serif;
+  text-align: center;
+}
+
+.message {
+  position: absolute;
+  inset-inline: 0;
+  padding-inline: 1rem;
+  text-wrap: balance;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.cursor-hidden {
+  cursor: none;
+}
