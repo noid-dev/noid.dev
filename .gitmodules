@@ -6,3 +6,7 @@
 	path = glassdoor-openapi
 	url = https://github.com/noid-dev/glassdoor-openapi
 	branch = gh-pages
+[submodule "shh"]
+	path = shh
+	url = https://github.com/noid-dev/shh
+	branch = main
